@@ -41,6 +41,7 @@
 	    action.setCallback(this, function(response) {
 	        var state = response.getState();
 	        if (component.isValid() && state === "SUCCESS") {
+				console.log('events',response.getReturnValue());
 	            component.set("v.events", response.getReturnValue());
 	        }
 	    });

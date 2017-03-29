@@ -1,0 +1,11 @@
+Id,Subject,StartDateTime,EndDateTime,IsAllDayEvent,DurationInMinutes,IsRecurrence,RecurrenceActivityId,RecurrenceStartDateTime,RecurrenceEndDateOnly,RecurrenceType,Location
+,All Day Event,2017-03-01T00:00:00.000+0000,,TRUE,,,,,,,
+,Long Event,2017-03-07T00:00:00.000+0000,2017-03-10T00:00:00.000+0000,TRUE,,,,,,,
+,Conference,2017-03-11T00:00:00.000+0000,2017-03-13T00:00:00.000+0000,TRUE,,,,,,,
+,Meeting,2017-03-12T10:30:00,2017-03-12T12:30:00,,,,,,,,
+,Lunch,2017-03-12T12:00:00,,,60,,,,,,
+,Meeting,2017-03-12T14:30:00,,,60,,,,,,
+,Happy Hour,2017-03-12T17:30:00,,,60,,,,,,
+,Dinner,2017-03-12T20:00:00,,,60,,,,,,
+,Birthday Party,2017-03-13T07:00:00,,,60,,,,,,
+,Click for Google,2017-03-28T00:00:00.000+0000,,TRUE,,,,,,,http://google.com/

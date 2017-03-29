@@ -1,8 +1,7 @@
 <aura:component controller="fullCalendarServerController" implements="flexipage:availableForAllPageTypes">
 
   <!-- LIBRARIES -->
-  <ltng:require
-      styles="{!$Resource.fullCalendar + '/node_modules/fullcalendar/dist/fullcalendar.min.css'}"
+  <ltng:require styles="{!$Resource.fullCalendar + '/node_modules/fullcalendar/dist/fullcalendar.min.css'}"
       scripts="{!join(',',
           $Resource.fullCalendar + '/node_modules/jquery/dist/jquery.min.js',
           $Resource.fullCalendar + '/node_modules/moment/min/moment.min.js',
@@ -40,8 +39,7 @@
                   {!category.sObjectLabelPlural}
                 </div>
                 <div class="slds-col slds-text-align--right">
-                  <lightning:buttonIcon
-                    iconName="utility:add"
+                  <lightning:buttonIcon iconName="utility:add"
                     variant="bare"
                     title="{! 'Create new ' + category.sObjectLabel}"
                     alternativeText="{! 'Create new ' + category.sObjectLabel}"
