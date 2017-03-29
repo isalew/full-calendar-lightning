@@ -7,3 +7,5 @@ debug
 docs
 resource-bundles
 node_modules
+standard*
+objects/*
