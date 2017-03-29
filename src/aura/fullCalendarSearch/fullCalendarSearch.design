@@ -1,0 +1,4 @@
+<!-- https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/components_config_for_app_builder.htm -->
+<design:component label="Full Calendar Search">
+    <design:attribute name="sObjectTypeConfig" label="Search Result Object API Names" description="Array of API names for sObjects to include in search results."/>
+</design:component>

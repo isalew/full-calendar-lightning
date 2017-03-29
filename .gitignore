@@ -8,4 +8,5 @@ docs
 resource-bundles
 node_modules
 standard*
-objects/*
+src/objects/*
+!src/objects/*__c*

@@ -1,0 +1,69 @@
+<aura:component controller="fullCalendarServerController" implements="flexipage:availableForAllPageTypes">
+
+  <!-- LIBRARIES -->
+  <ltng:require
+      styles="{!$Resource.fullCalendar + '/node_modules/fullcalendar/dist/fullcalendar.min.css'}"
+      scripts="{!join(',',
+          $Resource.fullCalendar + '/node_modules/jquery/dist/jquery.min.js',
+          $Resource.fullCalendar + '/node_modules/moment/min/moment.min.js',
+          $Resource.fullCalendar + '/node_modules/jquery-ui-dist/jquery-ui.min.js',
+          $Resource.fullCalendar + '/node_modules/fullcalendar/dist/fullcalendar.min.js')}"
+      afterScriptsLoaded="{!c.jsLoaded}"/>
+
+  <!-- ATTRIBUTES -->
+  <aura:attribute name="searchKey" type="String"/>
+  <aura:attribute name="searchResults" type="List"/>
+  <aura:attribute name="sObjectTypeConfig" type="String" default="Meal__c,Recipe__c,Ingredient__c"/>
+  <aura:attribute name="sObjectTypes" type="String[]"/>
+  <aura:attribute name="sObjectTypeLabels" type="Map"/>
+
+  <!-- EVENTS -->
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+  <!-- BODY -->
+  <div class="slds slds-box slds-m-around--small">
+
+    <div class="slds-form-element slds-m-bottom--medium">
+      <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right">
+        <lightning:icon iconName="utility:search" size="x-small" class="slds-input__icon slds-icon-text-default"/>
+        <ui:inputText value="{!v.searchKey}" class="slds-input" placeholder="Search" updateOn="keyup" keyup="{!c.updateSearchResults}"/>
+      </div>
+    </div>
+
+    <div aura:id="external-events" id="{!globalId + 'external-events'}">
+      <ul>
+        <aura:iteration var="category" items="{!v.searchResults}">
+          <li>
+            <h3 class="slds-section-title--divider slds-m-vertical--small">
+              <div class="slds-grid slds-grid--vertical-align-center">
+                <div class="slds-col">
+                  {!category.sObjectLabelPlural}
+                </div>
+                <div class="slds-col slds-text-align--right">
+                  <lightning:buttonIcon
+                    iconName="utility:add"
+                    variant="bare"
+                    title="{! 'Create new ' + category.sObjectLabel}"
+                    alternativeText="{! 'Create new ' + category.sObjectLabel}"
+                    onclick="{!c.createNewRecord}"
+                    name="{!category.sObjectType}"/>
+                </div>
+              </div>
+            </h3>
+            <ul class="slds-has-dividers--around-space">
+              <aura:iteration var="item" items="{!category.results}">
+                <li class="slds-item fc-event" data-sfid="{!item.Id}">{!item.Name}</li>
+              </aura:iteration>
+            </ul>
+          </li>
+        </aura:iteration>
+      </ul>
+      <!-- <p>
+        <input type='checkbox' id='drop-remove' />
+        <label for='drop-remove'>remove after drop</label>
+      </p> -->
+    </div>
+    <!-- <lightning:button variant="brand" label="Another Next" onclick="{!c.next}"/> -->
+  </div>
+
+</aura:component>
